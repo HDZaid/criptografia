@@ -30,7 +30,7 @@ class TabKeys(QWidget):
 
         # ---- LADO IZQUIERDO: GENERAR CLAVES ----
         gen_group = self._create_section(
-            "📝 PASO 1: GENERAR PAR DE CLAVES",
+            "PASO 1: GENERAR PAR DE CLAVES",
             "Crea un nuevo par de claves RSA (pública y privada)"
         )
         gen_layout = QVBoxLayout()
@@ -61,7 +61,7 @@ class TabKeys(QWidget):
 
         # ---- LADO DERECHO: GUARDAR CLAVES ----
         save_group = self._create_section(
-            "💾 PASO 2: GUARDAR CLAVES",
+            "PASO 2: GUARDAR CLAVES",
             "Guarda las claves generadas en archivos .pem"
         )
         save_layout = QVBoxLayout()
@@ -94,7 +94,7 @@ class TabKeys(QWidget):
 
         # ============ SECCIÓN 3: CARGAR CLAVES ============
         load_group = self._create_section(
-            "📂 PASO 3: CARGAR CLAVES EXISTENTES",
+            "PASO 3: CARGAR CLAVES EXISTENTES",
             "Carga claves .pem que ya tengas guardadas"
         )
         load_layout = QVBoxLayout()
@@ -102,9 +102,9 @@ class TabKeys(QWidget):
         
         # Botones en dos columnas
         btn_row = QHBoxLayout()
-        self.btn_load_private = QPushButton("📁 Cargar Clave Privada")
+        self.btn_load_private = QPushButton("Cargar Clave Privada")
         self.btn_load_private.setMinimumHeight(40)
-        self.btn_load_public = QPushButton("📁 Cargar Clave Pública")
+        self.btn_load_public = QPushButton("Cargar Clave Pública")
         self.btn_load_public.setMinimumHeight(40)
         btn_row.addWidget(self.btn_load_private)
         btn_row.addWidget(self.btn_load_public)
@@ -122,7 +122,7 @@ class TabKeys(QWidget):
             "Muestra el estado de las claves"
         )
         status_layout = QVBoxLayout()
-        self.lbl_status = QLabel("⏳ Sin claves generadas")
+        self.lbl_status = QLabel("Sin claves generadas")
         self.lbl_status.setWordWrap(True)
         self.lbl_status.setAlignment(Qt.AlignCenter)
         self.lbl_status.setStyleSheet("font-size: 11pt; color: #1A1A1A; font-weight: bold; padding: 20px;")
@@ -186,9 +186,9 @@ class TabKeys(QWidget):
             priv, pub = generate_rsa_keypair(2048)
             self.private_key = priv
             self.public_key = pub
-            self.lbl_status.setText("✅ Claves Generadas\n(RSA 2048)")
+            self.lbl_status.setText("Claves Generadas\n(RSA 2048)")
             self.text_preview.setPlainText(
-                "✅ Claves RSA 2048 generadas correctamente\n\n"
+                "Claves RSA 2048 generadas correctamente\n\n"
                 "Próximos pasos:\n"
                 "1. Haz clic en 'Guardar Claves en Carpeta'\n"
                 "2. O ve a las pestañas de Cifrar/Descifrar y Firmar"
@@ -210,9 +210,9 @@ class TabKeys(QWidget):
             public_path = os.path.join(folder, "public_key.pem")
             write_bytes_file(private_path, priv_pem)
             write_bytes_file(public_path, pub_pem)
-            self.lbl_status.setText("✅ Claves Guardadas")
-            self.text_preview.setPlainText(f"✅ Claves guardadas exitosamente en:\n\n{folder}")
-            QMessageBox.information(self, "✅ Guardado", f"Claves guardadas en:\n{folder}")
+            self.lbl_status.setText("Claves Guardadas")
+            self.text_preview.setPlainText(f"Claves guardadas exitosamente en:\n\n{folder}")
+            QMessageBox.information(self, "Guardado", f"Claves guardadas en:\n{folder}")
         except Exception as e:
             QMessageBox.critical(self, "Error", f"Error al guardar:\n{e}")
 
@@ -225,8 +225,8 @@ class TabKeys(QWidget):
                 data = f.read()
             priv = load_private_key_from_pem(data)
             self.private_key = priv
-            self.lbl_status.setText(f"✅ Clave Privada\nCargada")
-            self.text_preview.setPlainText(f"✅ Archivo: {os.path.basename(path)}\n\n"
+            self.lbl_status.setText(f"Clave Privada\nCargada")
+            self.text_preview.setPlainText(f"Archivo: {os.path.basename(path)}\n\n"
                                           "La clave privada está lista para:\n"
                                           "• Descifrar mensajes\n"
                                           "• Firmar documentos")
@@ -242,8 +242,8 @@ class TabKeys(QWidget):
                 data = f.read()
             pub = load_public_key_from_pem(data)
             self.public_key = pub
-            self.lbl_status.setText(f"✅ Clave Pública\nCargada")
-            self.text_preview.setPlainText(f"✅ Archivo: {os.path.basename(path)}\n\n"
+            self.lbl_status.setText(f"Clave Pública\nCargada")
+            self.text_preview.setPlainText(f"Archivo: {os.path.basename(path)}\n\n"
                                           "La clave pública está lista para:\n"
                                           "• Cifrar mensajes\n"
                                           "• Verificar firmas")
