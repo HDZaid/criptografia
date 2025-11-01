@@ -1,4 +1,3 @@
-# gui/main_window.py
 from PyQt5.QtWidgets import QMainWindow, QTabWidget, QWidget, QVBoxLayout, QLabel
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import QFont
@@ -49,9 +48,9 @@ class MainWindow(QMainWindow):
             QTabBar::tab {{
                 background-color: {c['bg_dark']};
                 color: {c['text_secondary']};
-                padding: 12px 26px;       /* más aire alrededor del texto */
-                font-size: 12pt;           /* texto ligeramente más grande */
-                min-width: 200px;          /* ancho mínimo para cada pestaña */
+                padding: 12px 26px;      
+                font-size: 12pt;          
+                min-width: 180px;          
                 margin-right: 2px;
                 font-weight: 500;
                 border-bottom: 2px solid transparent;
@@ -93,10 +92,17 @@ class MainWindow(QMainWindow):
 
             QPushButton:pressed {{
                 background-color: {c['danger']};
+
+            }}
+
+            QPushButton:checked {{
+            background-color: {c['accent_hover']};
+            color: #000000;
+            border: 2px solid {c['accent']};
             }}
 
             QLineEdit, QTextEdit {{
-                background-color: #2C2C2C;
+                background-color: #FFFFFF;
                 color: {c['text_primary']};
                 border: 1px solid {c['accent']};
                 border-radius: 6px;
@@ -106,10 +112,11 @@ class MainWindow(QMainWindow):
 
             QLineEdit:focus, QTextEdit:focus {{
                 border: 2px solid {c['accent_hover']};
+                background-color: #FFFFFF;
             }}
 
             QComboBox {{
-                background-color: #2C2C2C;
+                background-color: #FFFFFF;
                 color: {c['text_primary']};
                 border: 1px solid {c['accent']};
                 border-radius: 6px;
@@ -121,7 +128,7 @@ class MainWindow(QMainWindow):
             }}
 
             QComboBox QAbstractItemView {{
-                background-color: #2C2C2C;
+                background-color: #FFFFFF;
                 color: {c['text_primary']};
                 selection-background-color: {c['accent']};
             }}
@@ -132,6 +139,20 @@ class MainWindow(QMainWindow):
 
             QMessageBox QLabel {{
                 color: {c['text_primary']};
+            }}
+
+            QGroupBox {{
+                color: {c['text_primary']};
+                border: 2px solid {c['accent']};
+                border-radius: 6px;
+                margin-top: 10px;
+                padding-top: 10px;
+            }}
+
+            QGroupBox::title {{
+                subcontrol-origin: margin;
+                left: 10px;
+                padding: 0 3px 0 3px;
             }}
         """
         self.setStyleSheet(stylesheet)
@@ -185,11 +206,11 @@ class MainWindow(QMainWindow):
         title_font.setPointSize(18)
         title_font.setBold(True)
         title.setFont(title_font)
-        title.setAlignment(Qt.AlignCenter)  # 🔹 Centramos el texto
+        title.setAlignment(Qt.AlignCenter)
         title.setStyleSheet(f"""
             color: {c['accent']};
             font-weight: bold;
-            text-decoration: none;  /* 🔹 Asegura que no tenga subrayado */
+            text-decoration: none;
         """)
         layout.addWidget(title)
         header.setLayout(layout)

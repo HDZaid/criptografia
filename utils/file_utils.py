@@ -1,4 +1,3 @@
-# utils/file_utils.py
 from pathlib import Path
 
 def read_text_file(path: str, encoding: str = 'utf-8') -> str:
