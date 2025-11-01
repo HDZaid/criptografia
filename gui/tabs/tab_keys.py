@@ -35,9 +35,25 @@ class TabKeys(QWidget):
         )
         gen_layout = QVBoxLayout()
         gen_layout.addWidget(QLabel("Genera un nuevo par de claves RSA 2048"))
-        self.btn_generate = QPushButton("🔑 Generar Claves RSA 2048")
+        self.btn_generate = QPushButton("Generar Claves RSA 2048")
         self.btn_generate.setMinimumHeight(50)
-        self.btn_generate.setStyleSheet("background-color: #107C10; font-weight: bold; font-size: 11pt; padding: 12px;")
+        self.btn_generate.setStyleSheet("""
+            QPushButton {
+                background-color: #107C10;
+                color: #FFFFFF;
+                border: none;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 11pt;
+                padding: 12px;
+            }
+            QPushButton:hover {
+                background-color: #0B5E0B;
+            }
+            QPushButton:pressed {
+                background-color: #084B08;
+            }
+        """)
         gen_layout.addWidget(self.btn_generate)
         gen_layout.addStretch()
         gen_group.setLayout(gen_layout)
@@ -50,9 +66,25 @@ class TabKeys(QWidget):
         )
         save_layout = QVBoxLayout()
         save_layout.addWidget(QLabel("Guarda las claves en archivos .pem"))
-        self.btn_save = QPushButton("💾 Guardar Claves en Carpeta")
+        self.btn_save = QPushButton("Guardar Claves en Carpeta")
         self.btn_save.setMinimumHeight(50)
-        self.btn_save.setStyleSheet("background-color: #107C10; font-weight: bold; font-size: 11pt; padding: 12px;")
+        self.btn_save.setStyleSheet("""
+            QPushButton {
+                background-color: #107C10;
+                color: #FFFFFF;
+                border: none;
+                border-radius: 6px;
+                font-weight: bold;
+                font-size: 11pt;
+                padding: 12px;
+            }
+            QPushButton:hover {
+                background-color: #0B5E0B;
+            }
+            QPushButton:pressed {
+                background-color: #084B08;
+            }
+        """)
         save_layout.addWidget(self.btn_save)
         save_layout.addStretch()
         save_group.setLayout(save_layout)
@@ -86,7 +118,7 @@ class TabKeys(QWidget):
 
         # ---- ESTADO ----
         status_group = self._create_section(
-            "📊 ESTADO ACTUAL",
+            "ESTADO ACTUAL",
             "Muestra el estado de las claves"
         )
         status_layout = QVBoxLayout()
@@ -100,7 +132,7 @@ class TabKeys(QWidget):
 
         # ---- INFORMACIÓN ----
         preview_group = self._create_section(
-            "ℹ️ INFORMACIÓN",
+            "INFORMACIÓN",
             "Detalles sobre el proceso"
         )
         preview_layout = QVBoxLayout()

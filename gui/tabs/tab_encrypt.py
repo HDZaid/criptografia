@@ -1,4 +1,3 @@
-# gui/tabs/tab_encrypt.py
 from PyQt5.QtWidgets import (
     QWidget, QVBoxLayout, QHBoxLayout, QPushButton, QTextEdit, QLabel, 
     QFileDialog, QMessageBox, QGroupBox, QScrollArea

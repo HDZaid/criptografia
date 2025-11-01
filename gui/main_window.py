@@ -20,8 +20,8 @@ class MainWindow(QMainWindow):
         }
         
         self.setWindowTitle("Herramienta Criptografica")
-        self.resize(1100, 700)
-        self.setMinimumSize(900, 550)
+        self.resize(1350, 850)
+        self.setMinimumSize(1000, 550)
         
         self._apply_theme()
         self._init_ui()
@@ -174,9 +174,9 @@ class MainWindow(QMainWindow):
         self.tab_encrypt = TabEncrypt()
         self.tab_sign = TabSign()
 
-        self.tabs.addTab(self.tab_keys, "🔑 Gestión de claves")
-        self.tabs.addTab(self.tab_encrypt, "🔒 Cifrar / Descifrar")
-        self.tabs.addTab(self.tab_sign, "✍️ Firma digital")
+        self.tabs.addTab(self.tab_keys, "Gestión de claves")
+        self.tabs.addTab(self.tab_encrypt, "Cifrar / Descifrar")
+        self.tabs.addTab(self.tab_sign, "Firma digital")
 
         self.tabs.setElideMode(Qt.ElideNone)       # No recorta texto
         self.tabs.setUsesScrollButtons(True)       # Si son muchos tabs, agrega flechas
